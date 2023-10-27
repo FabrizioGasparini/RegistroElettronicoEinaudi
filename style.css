@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --background: #232323;
+}
+
+html,
+body {
+    background: #BE8FD8;
+    background: radial-gradient(at center top, #8547a7, #412a6c);
+
+    min-width: 100vw;
+    min-height: 100vh;
+
+    overflow: hidden;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    flex-direction: column;
+}
+
+* {
+    font-family: 'Lexend';
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 500px;
+
+    margin-bottom: 100px;
+    margin-top: -150px;
+}
+
+.content {
+    width: 420px;
+
+    background-color: transparent;
+    backdrop-filter: blur(20px);
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+
+    border: 2px solid rgba(255, 255, 255, .2);
+    color: white;
+
+    border-radius: 10px;
+    padding: 30px 40px;
+}
+
+.content h1 {
+    font-size: 36px;
+    text-align: center;
+}
+
+.content .input-box {
+    position: relative;
+
+    width: 100%;
+    height: 50px;
+
+    margin: 30px 0;
+
+    transition: .5s;
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+
+    background: transparent;
+
+    border: none;
+    outline: none;
+
+    border: 2px solid rgba(0, 0, 0, .2);
+    border-radius: 40px;
+    font-size: 14px;
+
+    padding: 20px 45px 20px 20px;
+
+    color: #fff;
+
+    transition: inherit;
+}
+
+.input-box input:hover,
+.input-box input:-webkit-autofill:hover {
+    border: 2px solid #fff;
+}
+
+.input-box input:-webkit-autofill {
+    border: 2px solid #412a6c;
+}
+
+
+.input-box input::placeholder {
+    color: #aaa;
+    transition: inherit;
+}
+
+.input-box input:-internal-autofill-selected {
+    background-color: black !important;
+}
+
+.input-box i {
+    position: absolute;
+
+    right: 20px;
+    top: 50%;
+
+    transform: translateY(-50%) rotate(0);
+
+    font-size: 15px;
+    transition: inherit;
+}
+
+.input-box input:hover+i {
+    transform: translateY(-50%) rotate(360deg);
+}
+
+.input-box input:-webkit-autofill+i {
+    color: #232323;
+}
+
+.content .forgot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin: 40px 0 15px;
+}
+
+.content .forgot a {
+    font-size: 15px;
+    text-decoration: none;
+
+    margin: -35px 0 15px;
+
+    color: #fff;
+    position: relative;
+
+    display: inline-block;
+    text-align: center;
+}
+
+.forgot a::after {
+    content: '';
+    display: block;
+
+    width: 0;
+    height: 2px;
+
+    background: #fff;
+
+    margin: auto;
+    transition: .5s;
+}
+
+.forgot a:hover::after {
+    width: 100%;
+}
+
+.content .submit {
+    width: 100%;
+    height: 45px;
+
+    background-color: #412a6c;
+    color: #fff;
+
+    outline: none;
+    border: none;
+    border-radius: 40px;
+
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+
+    font-size: 20px;
+    font-weight: 600;
+
+    cursor: pointer;
+}
