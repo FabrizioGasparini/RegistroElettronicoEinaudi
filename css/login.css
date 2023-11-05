@@ -6,19 +6,18 @@
 
 html,
 body {
-    background: #BE8FD8;
-    background: radial-gradient(at center top, #8547a7, #412a6c);
-
-    min-width: 100vw;
-    min-height: 100vh;
-
-    overflow: hidden;
-
     display: flex;
+    flex-direction: column;
+
     align-items: center;
     justify-content: center;
-
-    flex-direction: column;
+    
+    min-width: 100vw;
+    min-height: 100vh;
+    
+    background: radial-gradient(at center top, #8547a7, #412a6c);
+    
+    overflow: hidden;
 }
 
 * {
@@ -26,6 +25,7 @@ body {
 
     margin: 0;
     padding: 0;
+
     box-sizing: border-box;
 }
 
@@ -39,16 +39,16 @@ body {
 .content {
     width: 420px;
 
+    padding: 30px 40px;
+
     background-color: transparent;
     backdrop-filter: blur(20px);
+    color: white;
 
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
 
     border: 2px solid rgba(255, 255, 255, .2);
-    color: white;
-
     border-radius: 10px;
-    padding: 30px 40px;
 }
 
 .content h1 {
@@ -61,7 +61,7 @@ body {
 
     width: 100%;
     height: 50px;
-
+    
     margin: 30px 0;
 
     transition: .5s;
@@ -71,18 +71,18 @@ body {
     width: 100%;
     height: 100%;
 
+    padding: 20px 45px 20px 20px;
+    
     background: transparent;
+    color: #fff;
 
-    border: none;
     outline: none;
-
+    
+    border: none;
     border: 2px solid rgba(0, 0, 0, .2);
     border-radius: 40px;
+    
     font-size: 14px;
-
-    padding: 20px 45px 20px 20px;
-
-    color: #fff;
 
     transition: inherit;
 }
@@ -99,6 +99,7 @@ body {
 
 .input-box input::placeholder {
     color: #aaa;
+
     transition: inherit;
 }
 
@@ -111,10 +112,10 @@ body {
 
     right: 20px;
     top: 50%;
-
     transform: translateY(-50%) rotate(0);
 
     font-size: 15px;
+
     transition: inherit;
 }
 
@@ -126,45 +127,47 @@ body {
     color: #232323;
 }
 
-.content .forgot {
+.content .forgot-password {
     display: flex;
-    align-items: center;
+
     justify-content: center;
+    align-items: center;
 
     margin: 40px 0 15px;
 }
 
-.content .forgot a {
-    font-size: 15px;
-    text-decoration: none;
-
-    margin: -35px 0 15px;
-
-    color: #fff;
+.forgot-password a {
+    display: inline-block;
     position: relative;
 
-    display: inline-block;
+    margin: -35px 0 15px;
+    
+    color: #fff;
+    
+    font-size: 15px;
     text-align: center;
+    text-decoration: none;
 }
 
-.forgot a::after {
+.forgot-password a::after {
     content: '';
     display: block;
 
     width: 0;
     height: 2px;
 
-    background: #fff;
-
     margin: auto;
+    
+    background: #fff;
+    
     transition: .5s;
 }
 
-.forgot a:hover::after {
+.forgot-password a:hover::after {
     width: 100%;
 }
 
-.content .submit {
+.content #submit {
     width: 100%;
     height: 45px;
 
@@ -181,4 +184,15 @@ body {
     font-weight: 600;
 
     cursor: pointer;
+}
+
+#error-message {
+    display: none;
+
+    margin-top: 15px;
+
+    color: rgb(255, 255, 0);
+    
+    font-size: 12px;
+    text-align: center;
 }
