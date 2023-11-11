@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="IE=edge" http-equiv="X-UA-Compatible">
+
+    <title>Classeviva 2.0 - Dashboard</title>
+    <meta name="description" content="Description">
+
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <script src="/js/dashboard.js" defer></script>
+
+    <!-- https://fontawesome.com/search -->
+    <script src=" https://kit.fontawesome.com/311c71b442.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="logo-details">
+            <a href=""><img src="/img/classeviva2.0.svg" alt=""
+                    class="icon"></a>
+            <div class="logo-name">ClasseViva 2.0</div>
+            <i class='fa-solid fa-bars' id="btn"></i>
+        </div>
+        <ul class="nav-list">
+            <li>
+                <a href="./dashboard.html">
+                    <i class="fa-solid fa-chart-line"></i>
+                    <span class="links-name">Dashboard</span>
+                </a>
+                <span class="tooltip">Dashboard</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    <span class="links-name">Agenda</span>
+                </a>
+                <span class="tooltip">Agenda</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chart-simple"></i>
+                    <span class="links-name">Valutazioni</span>
+                </a>
+                <span class="tooltip">Valutazioni</span>
+            </li>
+            <li class="separator"></li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-chalkboard"></i>
+                    <span class="links-name">Lezioni</span>
+                </a>
+                <span class="tooltip">Lezioni</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-person-circle-exclamation"></i>
+                    <span class="links-name">Assenze</span>
+                </a>
+                <span class="tooltip">Assenze</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-note-sticky"></i>
+                    <span class="links-name">Note</span>
+                </a>
+                <span class="tooltip">Note</span>
+            </li>
+            <li class="separator"></li>
+            <li>
+                <a href="#">
+                    <i class="fa-solid fa-file-contract"></i>
+                    <span class="links-name">Scrutini</span>
+                </a>
+                <span class="tooltip">Scrutini</span>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa-regular fa-clipboard"></i>
+                    <span class="links-name">Bacheca</span>
+                </a>
+                <span class="tooltip">Bacheca</span>
+            </li>
+            <li class="profile">
+                <div class="profile-details">
+                    <div class="name-role">
+                        <div class="name" title="Fabrizio Gasparini">Fabrizio Gasparini</div>
+                        <div class="role">Studente</div>
+                    </div>
+                </div>
+                <i class="fa-solid fa-arrow-right-from-bracket" id="logout" title="Logout"></i>
+            </li>
+        </ul>
+    </div>
+    <section class="home-section">
+        <div class="content">
+            <div class="left">
+                <div class="text">Dashboard</div>
+                <ul class="stats">
+                    <li class="today-events">
+                        <a href="./agenda.html">
+                            <div class="top">
+                                <div class="icon">
+                                    <i class="fa-solid fa-calendar-days"></i>
+                                </div>
+                                <h2>Eventi Oggi</h2>
+                            </div>
+                            <div class="content">
+                                <h1>5</h1>
+                                <p>2 COMPITI | 3 ANNOTAZIONI</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="last-grade">
+                        <a href="./valutazioni.html">
+                            <div class="top">
+                                <div class="icon">
+                                    <i class="fa-solid fa-chart-simple"></i>
+                                </div>
+                                <h2>Ultimo Voto</h2>
+                            </div>
+                            <div class="content">
+                                <h1>9+</h1>
+                                <p>Matematica</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="total-absences">
+                        <a href="./assenze.html">
+                            <div class="top">
+                                <div class="icon">
+                                    <i class="fa-solid fa-person-circle-xmark"></i>
+                                </div>
+                                <h2>Assenze Totali</h2>
+                            </div>
+                            <div class="content">
+                                <h1>5</h1>
+                                <p><b>2</b> da giustificare</p>
+                            </div>
+                        </a>
+                    </li>
+                    <li class="last-comunication">
+                        <a href="./bacheca.html">
+                            <div class="top">
+                                <div class="icon">
+                                    <i class="fa-solid fa-chalkboard"></i>
+                                </div>
+                                <h2>Comunicazione</h2>
+                            </div>
+                            <div class="content">
+                                <h3>La sQuola chiude per sempre!</h3>
+                                <p>La sQuola Einaudi Correggio ha decisono di chiudere per sempre i propri battenti, e gli studenti appenderanno il quaderno al chiodo!</p>
+                            </div>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="valutazioni">
+                    <div class="media-voti"></div>
+                    <div class="grafico-andamento"></div>
+                </ul>
+            </div>
+            <div class="right">
+                <div class="calendar"></div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

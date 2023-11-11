@@ -1,0 +1,468 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --background: #231d51;
+    --main: #2d2562;
+    --sidebar-main: #412a6c;
+    --sidebar-secondary: #232323;
+    --sidebar-text: #fff;
+
+
+
+    --calendar-bg-color: #262829;
+    --calendar-font-color: #FFF;
+    --weekdays-border-bottom-color: #404040;
+    --calendar-date-hover-color: #505050;
+    --calendar-current-date-color: #1b1f21;
+    --calendar-today-color: linear-gradient(to bottom, #03a9f4, #2196f3);
+    --calendar-today-innerborder-color: transparent;
+    --calendar-nextprev-bg-color: transparent;
+    --next-prev-arrow-color: #FFF;
+    --calendar-border-radius: 16px;
+    --calendar-prevnext-date-color: #484848
+}
+
+html,
+body {
+    background-color: var(--background);
+    /*background: radial-gradient(at center top, #160321, hsl(262, 88%, 10%));
+    background: radial-gradient(at center top, #8547a7, #412a6c);*/
+
+    min-width: 100vw;
+    min-height: 100vh;
+
+    overflow-x: hidden;
+    flex-direction: column;
+}
+
+* {
+    font-family: 'Lexend';
+
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    width: 78px;
+    background: var(--sidebar-main);
+    padding: 6px 14px;
+    z-index: 99;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open {
+    overflow: hidden;
+    width: 250px;
+}
+
+.sidebar .logo-details {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.sidebar .logo-details .icon {
+    opacity: 0;
+    transition: all 0.5s ease;
+    height: 50px;
+}
+
+.sidebar .logo-details .logo-name {
+    color: var(--sidebar-text);
+    font-size: 16px;
+    font-weight: 700;
+    opacity: 0;
+    transition: all 0.5s ease;
+    margin-left: 10px;
+}
+
+.sidebar.open .logo-details .icon,
+.sidebar.open .logo-details .logo-name {
+    opacity: 1;
+}
+
+.sidebar .logo-details #btn {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-size: 22px;
+    transition: all 0.4s ease;
+    font-size: 23px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .logo-details #btn {
+    text-align: right;
+}
+
+.sidebar i {
+    color: var(--sidebar-text);
+    height: 60px;
+    min-width: 50px;
+    font-size: 28px;
+    text-align: center;
+    line-height: 60px;
+}
+
+.sidebar .nav-list {
+    margin-top: 20px;
+    height: 100%;
+}
+
+.sidebar li {
+    position: relative;
+    margin: 8px 0;
+    list-style: none;
+}
+
+.sidebar li .tooltip {
+    position: absolute;
+    top: -20px;
+    left: calc(100% + 15px);
+    z-index: 3;
+    background: var(--sidebar-text);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 400;
+    opacity: 0;
+    white-space: nowrap;
+    pointer-events: none;
+    transition: 0s;
+}
+
+.sidebar li:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.sidebar.open li .tooltip {
+    display: none;
+}
+
+
+.sidebar li a {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    background: var(--sidebar-main);
+}
+
+.sidebar li a:hover {
+    background: var(--sidebar-text);
+}
+
+.sidebar li a .links-name {
+    color: var(--sidebar-text);
+    font-size: 15px;
+    font-weight: 400;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+
+.sidebar.open li a .links-name {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.sidebar li a:hover .links-name,
+.sidebar li a:hover i {
+    transition: all 0.5s ease;
+    color: var(--sidebar-main);
+}
+
+.sidebar li i {
+    height: 50px;
+    line-height: 50px;
+    font-size: 18px;
+    border-radius: 12px;
+}
+
+.sidebar li.profile {
+    position: absolute;
+    height: 60px;
+    right: 0;
+    left: 0;
+    bottom: -8px;
+    padding: 10px 14px;
+    background: var(--sidebar-secondary);
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open li.profile {
+    width: 250px;
+}
+
+.sidebar li .profile-details {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+}
+
+.sidebar li.profile .name,
+.sidebar li.profile .role {
+    font-size: 15px;
+    font-weight: 400;
+    max-width: 190px;
+    color: var(--sidebar-text);
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.sidebar li.profile .role {
+    font-size: 12px;
+    max-width: fit-content;
+}
+
+.sidebar .profile #logout {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background: var(--sidebar-secondary);
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 0px;
+    transition: all 0.5s ease;
+}
+
+.sidebar.open .profile #logout {
+    width: 50px;
+    background: none;
+}
+
+.sidebar .profile #logout:hover,
+.sidebar.open .profile #logout:hover {
+    font-size: 22px;
+}
+
+.sidebar #btn:hover,
+.sidebar.open #btn:hover {
+    font-size: 28px;
+}
+
+.sidebar.open~.home-section {
+    left: 260px;
+    width: calc(100% - 260px);
+}
+
+
+@media (max-width: 420px) {
+    .sidebar li .tooltip {
+        display: none;
+    }
+}
+
+.separator {
+    width: 100%;
+
+    border: 1px solid var(--sidebar-text);
+}
+
+
+.home-section {
+    position: relative;
+    min-height: 100vh;
+    top: 0;
+    left: 88px;
+    width: calc(100% - 88px);
+    transition: all 0.5s ease;
+    z-index: 2;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.home-section .text {
+    color: var(--sidebar-text);
+    font-size: 30px;
+    font-weight: 500;
+    margin: 18px;
+
+    height: fit-content;
+}
+
+.home-section .content {
+    position: relative;
+    flex-grow: 1;
+    width: 100%;
+
+    display: flex;
+    gap: 25px;
+}
+
+.home-section .content .left {
+    height: 100%;
+    width: 75%;
+
+    margin-left: 15px;
+}
+
+.home-section .content .right {
+    height: 100%;
+    width: 25%;
+    background-color: var(--sidebar-main);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.home-section .content .stats {
+    width: 100%;
+    height: 175px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    gap: 20px;
+}
+
+.home-section .content .stats li {
+    height: 100%;
+    width: 100%;
+
+    border-radius: 25px;
+
+    color: var(--sidebar-text);
+    list-style: none;
+
+    text-align: center;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+
+    position: relative;
+
+    padding: 6px;
+
+    overflow: hidden;
+
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.home-section .content .stats a {
+    text-decoration: none;
+    width: 100%;
+    height: 100%;
+    color: var(--sidebar-text);
+}
+
+.home-section .content .stats li.last-comunication {
+    background-color: #5757d7;
+}
+
+.home-section .content .stats li.today-events {
+    background-color: #9bab3e;
+}
+
+.home-section .content .stats li.last-grade {
+    background-color: #46be76;
+}
+
+.home-section .content .stats li.total-absences {
+    background-color: #be4646;
+}
+
+
+.home-section .content .stats li .top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.home-section .content .stats li .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+
+    max-width: 100%;
+    width: 100%;
+}
+
+
+.home-section .content .stats li .icon {
+    width: 60px;
+    aspect-ratio: 1;
+    border-radius: 30px;
+    background-color: #2d2562;
+    margin-bottom: 5px;
+
+    display: grid;
+    place-items: center;
+    font-size: 25px;
+
+}
+
+.home-section .content .stats li h1 {
+    font-size: 50px;
+    max-width: 100%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.home-section .content .stats li h2 {
+    font-size: 24px;
+    max-width: 100%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.home-section .content .stats li h3 {
+    font-size: 17px;
+    max-width: 90%;
+
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    display: -webkit-box;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+
+.home-section .content .stats li p {
+    font-size: 12px;
+    max-width: 90%;
+
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+.home-section .content .stats li:hover {
+    scale: 1.05;
+}
