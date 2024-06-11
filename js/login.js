@@ -10,8 +10,8 @@ submitButton.addEventListener('click', () => {
     {
         response = fetch('https://registroelettronicoeinaudi.pythonanywhere.com/api/login', {
             body: {
-                "uid": "gasparini.fabrizio@einaudicorreggio.it",
-                "pwd": "Fabrizio2008*"
+                "uid": "***",
+                "pwd": "***"
             },
             method: "POST"
         })
